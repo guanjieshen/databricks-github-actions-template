@@ -8,6 +8,7 @@ permissions:
 
 jobs:
   review:
+    if: vars.DATABRICKS_HOST != ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
