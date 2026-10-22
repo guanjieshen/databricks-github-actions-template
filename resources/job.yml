@@ -1,0 +1,11 @@
+resources:
+  jobs:
+    trips_daily:
+      name: trips_daily
+      tasks:
+        - task_key: main
+          notebook_task:
+            notebook_path: ../src/trips_daily.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}

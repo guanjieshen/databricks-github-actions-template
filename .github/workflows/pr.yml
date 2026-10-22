@@ -1,0 +1,21 @@
+name: PR
+
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: guanjieshen/genie_code_code_review_gh_action@v0
+        with:
+          databricks-host: ${{ vars.DATABRICKS_HOST }}
+          client-id: ${{ vars.GENIE_REVIEWER_CLIENT_ID }}
+          client-secret: ${{ secrets.GENIE_REVIEWER_CLIENT_SECRET }}
+          bundle-target: prod
