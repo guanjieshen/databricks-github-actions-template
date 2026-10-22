@@ -1,4 +1,5 @@
-name: Deploy
+# Deploys the bundle's prod target on every merge to main.
+name: Deploy bundle
 
 on:
   push:
