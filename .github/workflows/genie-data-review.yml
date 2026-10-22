@@ -1,4 +1,6 @@
-name: PR
+# Reviews every pull request against the Databricks workspace with Genie Code and Genie One.
+# https://github.com/guanjieshen/genie_code_code_review_gh_action
+name: Genie Data Review
 
 on: pull_request
 
@@ -7,7 +9,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  review:
+  genie-data-review:
     if: vars.DATABRICKS_HOST != ''
     runs-on: ubuntu-latest
     steps:
