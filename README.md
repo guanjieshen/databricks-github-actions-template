@@ -5,7 +5,7 @@
 This repository is a minimal template for a Databricks project on GitHub. It includes:
 
 - A **Databricks Asset Bundle** with one job.
-- **Genie Data Review** on every pull request. The [Genie Data Review action](https://github.com/guanjieshen/genie_code_code_review_gh_action) checks the change against your workspace (schemas, lineage, deployed jobs, governance tags, metric definitions) and posts one review comment. It runs alongside any other reviewer, such as GitHub Copilot.
+- **Lakehouse Review** on every pull request. The [Lakehouse Review action](https://github.com/guanjieshen/genie_code_code_review_gh_action) checks the change against your workspace (schemas, lineage, deployed jobs, governance tags, metric definitions) and posts one review comment. It runs alongside any other reviewer, such as GitHub Copilot.
 - **Bundle deployment** to `prod` on every merge to `main`.
 
 | File | Purpose |
@@ -13,7 +13,7 @@ This repository is a minimal template for a Databricks project on GitHub. It inc
 | `databricks.yml` | Bundle with a `dev` target (your workspace user) and a `prod` target |
 | `resources/job.yml` | One serverless job |
 | `src/trips_daily.py` | Example notebook (reads `samples.nyctaxi.trips`) |
-| `.github/workflows/genie-data-review.yml` | Genie Data Review on every pull request |
+| `.github/workflows/genie-data-review.yml` | Lakehouse Review on every pull request |
 | `.github/workflows/deploy-bundle.yml` | Deploys `prod` on every merge to `main` |
 
 ## Getting started
@@ -27,7 +27,7 @@ Select **Use this template**, then rename `my_project` in `databricks.yml` and s
 | Service principal | Used by | Access |
 |---|---|---|
 | Deployer | `deploy-bundle.yml` | Can create jobs and write to your schema |
-| Reviewer | `genie-data-review.yml` | Read-only: `USE CATALOG`, `BROWSE`, `USE SCHEMA`, `CAN_VIEW` on the job, `CAN_USE` on a SQL warehouse |
+| Reviewer | `genie-data-review.yml` | Read-only: `USE CATALOG` and `BROWSE` on each catalog, `CAN_VIEW` on the job, `CAN_USE` on a SQL warehouse. `lakehouse-review setup` prints the exact grants |
 
 Generate an OAuth secret for each. See the [reviewer setup guide](https://github.com/guanjieshen/genie_code_code_review_gh_action/blob/main/docs/setup.md).
 
@@ -48,7 +48,7 @@ databricks bundle deploy          # deploys the dev target to your user folder
 databricks bundle run trips_daily
 ```
 
-Open a pull request and Genie Data Review comments on it within a few minutes. Merge to `main` to deploy `prod`.
+Open a pull request and Lakehouse Review comments on it within a few minutes. Merge to `main` to deploy `prod`.
 
 > 💡 **Tip**
 > To require approval before production deploys, add required reviewers to the `production` environment in your repository settings.
