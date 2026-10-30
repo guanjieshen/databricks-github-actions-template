@@ -22,7 +22,7 @@ jobs:
           client-id: ${{ vars.GENIE_REVIEWER_CLIENT_ID }}
           client-secret: ${{ secrets.GENIE_REVIEWER_CLIENT_SECRET }}
           bundle-target: prod
-          # Optional (all inputs: https://github.com/guanjieshen/genie_code_code_review_gh_action#inputs)
+          # Optional (all inputs: https://github.com/guanjieshen/genie_code_code_review_gh_action/blob/main/docs/inputs.md)
           # fail-on: critical                 # fail the check at this severity: critical | high | medium
           # semantic: off                     # skip Genie One business-definition checks
           # genie-host: https://<workspace>   # workspace that serves the Genie Code model, if this one does not
