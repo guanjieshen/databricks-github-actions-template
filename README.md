@@ -15,6 +15,7 @@ This repository is a minimal template for a Databricks project on GitHub. It inc
 | `src/trips_daily.py` | Example notebook (reads `samples.nyctaxi.trips`) |
 | `.github/workflows/genie-data-review.yml` | Lakehouse Review on every pull request |
 | `.github/workflows/deploy-bundle.yml` | Deploys `prod` on every merge to `main` |
+| `AGENTS.md`, `CLAUDE.md` | Guide for coding agents such as Claude Code: layout, commands, conventions, and how to act on review findings |
 
 ## Getting started
 
