@@ -23,7 +23,8 @@ jobs:
           client-secret: ${{ secrets.GENIE_REVIEWER_CLIENT_SECRET }}
           bundle-target: prod
           # Optional (all inputs: https://github.com/guanjieshen/genie_code_code_review_gh_action/blob/main/docs/inputs.md)
-          # fail-on: critical                 # fail the check at this severity: critical | high | medium
+          # fail-on: blocker                  # fail the check on blocking issues (or: critical | high | medium)
           # semantic: off                     # skip Genie One business-definition checks
           # genie-host: https://<workspace>   # workspace that serves the Genie Code model, if this one does not
-          # instructions: "main is the production catalog; cust_id is a legacy key"
+          # analysis-depth: detailed        # also check joins, grain, and codes against your Pages (Genie One)
+          # Team context goes in .lakehouse-review/instructions.md (set instructions_file in .lakehouse-review/config.yml).
