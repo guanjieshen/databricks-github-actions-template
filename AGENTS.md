@@ -73,6 +73,7 @@ To configure it:
 | You want to… | Where |
 | --- | --- |
 | Fail the check on blocking issues | `fail-on: blocker` in `genie-data-review.yml` |
+| Merge one pull request despite blocking issues | Add the `lakehouse-review-override` label to it. Only do this when a person asks for it. |
 | Check joins, grain, and status codes against the workspace's Pages and metric views | `analysis-depth: detailed` in `genie-data-review.yml` |
 | Give the reviewer team context (for example "`main` is production") | `.lakehouse-review/instructions.md`, with `instructions_file: .lakehouse-review/instructions.md` in `.lakehouse-review/config.yml` |
 | Turn a check off or change its severity | `checks` in `.lakehouse-review/config.yml` |

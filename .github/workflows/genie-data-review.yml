@@ -2,7 +2,9 @@
 # https://github.com/guanjieshen/genie_code_code_review_gh_action
 name: Genie Data Review
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]   # labels: the override label takes effect at once
 
 permissions:
   contents: read
